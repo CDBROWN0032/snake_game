@@ -1,5 +1,6 @@
 #include <iostream>
 #include <conio.h>
+#include <windows.h>
 
 using namespace std; 
 
@@ -129,7 +130,7 @@ int main() {
 		Draw();
 		Input();
 		Logic();
-		//Sleep(10); //slows the game
+		Sleep(10); //slows the game
 	}
 	return 0;
 }
