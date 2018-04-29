@@ -39,14 +39,18 @@ void Draw() {
 				bool print = false;
 				for (int k = 0; k < nTail; k++) {
 					if (tailX[k] == j && tailY[k] == i) {
-						cout << "o";
-						print = true;
+						if (nTail % 5 == 0) {
+							cout << "x";
+							print = true;
+						}
+						else {
+							cout << "o";
+							print = true;
+						}
 					}
-
 				}
 				if (!print)
 					cout << " ";
-
 			}
 
 			if (j == width - 1)
@@ -111,17 +115,27 @@ void Logic() {
 	default:
 		break;
 	}
-	if (x > width || x < 0 || y > height || y < 0)
-		gameOver = true;
+	//if (x > width || x < 0 || y > height || y < 0)
+	//	gameOver = true;
+	if (x >= width) x = 0; else if (x < 0) x = width - 1;
+	if (y >= height) y = 0; else if (y < 0) y = height - 1;
 	for (int i = 0; i < nTail; i++)
 		if (tailX[i] == x && tailY[i] == y)
 			gameOver = true;
 
 	if (x == fruitX && y == fruitY) {
-		score += 10;
-		fruitX = rand() % width;
-		fruitY = rand() % height;
-		nTail++;
+		if (nTail % 5 == 0) {
+			score += 50;
+			fruitX = rand() % width;
+			fruitY = rand() % height;
+			nTail++;
+		}
+		else {
+			score += 10;
+			fruitX = rand() % width;
+			fruitY = rand() % height;
+			nTail++;
+		}
 	}
 }
 int main() {
