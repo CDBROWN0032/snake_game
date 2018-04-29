@@ -63,6 +63,11 @@ void Draw() {
 		cout << "#";
 	cout << endl;
 	cout << "Score: " << score << endl;
+	cout << " " << endl;
+	cout << "W-A-S-D Controls" << endl;
+	cout << "Bonus every 5th Fruit" << endl;
+	cout << "Press X to Exit";
+	cout << " " << endl;
 }
 void Input() {
 	if (_kbhit()) {
